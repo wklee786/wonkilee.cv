@@ -3,109 +3,133 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery — Wonki Lee</title>
-  <meta name="description" content="Gallery of simulations and observations by Wonki Lee" />
+  <title>Wonki Lee</title>
+  <meta name="description" content="Personal homepage of Wonki Lee" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; color:#0f172a; background:#ffffff; }
-    a { color:#0f62fe; text-decoration:none; }
-    a:hover { text-decoration:underline; text-underline-offset:2px; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
-    header { display:flex; align-items:center; justify-content:space-between; padding: 12px 0; }
-    nav a { margin-left:16px; font-weight:600; color:#0f172a; opacity:0.85; }
-    h1 { font-size: clamp(28px, 5vw, 44px); margin: 12px 0 8px; }
-    p.muted { color:#334155; }
+    body {
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      background: #ffffff;
+      color: #0f172a;
+    }
+    a { color: #0f62fe; text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 2px; }
+    .container { max-width: 980px; margin: 0 auto; padding: 24px; }
 
-    .tabs { display:flex; gap:12px; margin: 16px 0 8px; flex-wrap:wrap; }
-    .pill { border:1px solid #e5e7eb; padding:8px 12px; border-radius:999px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; }
+    .logo { font-weight: 800; letter-spacing: -0.02em; }
+    nav a { margin-left: 16px; font-weight: 600; color: #0f172a; opacity: 0.85; }
 
-    .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:16px; margin-top:16px; }
-    .card { border:1px solid #e5e7eb; border-radius:12px; overflow:hidden; background:#fff; }
-    .thumb { aspect-ratio:16/9; background:#f1f5f9; display:block; width:100%; object-fit:cover; }
-    .card-body { padding:12px; }
-    .card h3 { margin:0 0 4px; font-size:1.05rem; }
-    .meta { color:#64748b; font-size:0.92rem; }
+    .hero { position: relative; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: center; padding: 64px 0 24px; background: url('assets/hero-bg.jpg') no-repeat center/cover; }
+    .hero::before { content: ""; position: absolute; inset: 0; background: rgba(255,255,255,0.7); }
+    .hero > * { position: relative; z-index: 1; }
+    .hero h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.05; margin: 0 0 12px; }
+    .hero p { color: #334155; font-size: 1.05rem; margin: 0 0 20px; }
+    .cta { display: inline-flex; gap: 10px; }
+    .btn { background: #0f62fe; color: #fff; border: 0; padding: 12px 16px; border-radius: 12px; font-weight: 800; cursor: pointer; }
+    .btn.secondary { background: transparent; border: 1px solid #334155; color: #0f172a; }
+    img.profile-pic { max-width: 100%; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
 
-    footer { padding:32px 0; color:#64748b; font-size:0.95rem; }
+    section { padding: 36px 0; }
+    h2 { font-size: 1.6rem; margin: 0 0 16px; }
+
+    .project { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 20px; align-items: center; padding: 24px 0; border-top: 1px solid #e5e7eb; }
+    .project:first-of-type { border-top: 0; }
+    .project-img img { width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+    .project-body h3 { margin: 0 0 8px; }
+    .project-body p { margin: 0 0 10px; color: #334155; }
+    .project:nth-of-type(even) { grid-template-columns: 1.1fr 0.9fr; }
+    .project:nth-of-type(even) > .project-img { order: 2; }
+    .project:nth-of-type(even) > .project-body { order: 1; }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; }
+      nav { display: none; }
+      .project { grid-template-columns: 1fr; }
+      .project:nth-of-type(even) > .project-img,
+      .project:nth-of-type(even) > .project-body { order: initial; }
+    }
+
+    footer { padding: 28px 0 48px; color: #64748b; font-size: 0.95rem; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div><a href="index.html" style="font-weight:800; letter-spacing:-0.02em">Wonki Lee</a></div>
+      <div class="logo">Wonki Lee</div>
       <nav>
-        <a href="index.html#projects">Projects</a>
+        <a href="#projects">Projects</a>
         <a href="gallery.html">Gallery</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="#other">Beyond Astronomy</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <main>
-      <h1>Gallery</h1>
-      <p class="muted">Simulations, images, and maps. Each item links to the original file (video or image) hosted in your repo or elsewhere.</p>
-
-      <div class="tabs">
-        <span class="pill">All</span>
-        <span class="pill">Simulations</span>
-        <span class="pill">Observations</span>
-        <span class="pill">Figures</span>
+    <section class="hero">
+      <div>
+        <h1>Hello! I'm <span style="color:#0f62fe">Wonki Lee</span>.</h1>
+        <p>I am curious about the universe — from galaxy clusters and cosmic structure to the nature of dark matter and the origin of cosmic particles. I enjoy combining simulations, observations, and new ideas to explore these questions.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">See Projects</a>
+          <a class="btn secondary" href="gallery.html">View Gallery</a>
+        </div>
       </div>
+      <div>
+        <img src="profile.jpg" alt="Wonki Lee" class="profile-pic" />
+      </div>
+    </section>
 
-      <section>
-        <h2 style="font-size:1.2rem; margin:16px 0 8px">Simulations</h2>
-        <div class="grid">
-          <article class="card">
-            <a href="assets/sim_shock_evolution.mp4" target="_blank" rel="noreferrer">
-              <img class="thumb" src="assets/sim_shock_evolution_thumb.jpg" alt="Shock evolution video" />
-            </a>
-            <div class="card-body">
-              <h3>Shock Evolution in a Cluster Merger</h3>
-              <div class="meta">MP4 · 30s · TNG‑Cluster derived</div>
-            </div>
-          </article>
-
-          <article class="card">
-            <a href="assets/sidm_offset.mp4" target="_blank" rel="noreferrer">
-              <img class="thumb" src="assets/sidm_offset_thumb.jpg" alt="SIDM halo–shock offset video" />
-            </a>
-            <div class="card-body">
-              <h3>SIDM Halo–Shock Offsets</h3>
-              <div class="meta">MP4 · 20s · TNGC‑SIDM</div>
-            </div>
-          </article>
+    <section id="projects">
+      <h2>Projects</h2>
+      <article class="project">
+        <div class="project-img">
+          <img src="assets/project1.jpg" alt="Project 1" />
         </div>
-      </section>
-
-      <section>
-        <h2 style="font-size:1.2rem; margin:16px 0 8px">Observations</h2>
-        <div class="grid">
-          <article class="card">
-            <a href="assets/meerkat_relic.png" target="_blank" rel="noreferrer">
-              <img class="thumb" src="assets/meerkat_relic_thumb.jpg" alt="MeerKAT relic map" />
-            </a>
-            <div class="card-body">
-              <h3>MeerKAT Relic Map</h3>
-              <div class="meta">PNG · Polarization overlay</div>
-            </div>
-          </article>
-
-          <article class="card">
-            <a href="assets/xmm_ggm.png" target="_blank" rel="noreferrer">
-              <img class="thumb" src="assets/xmm_ggm_thumb.jpg" alt="XMM-Newton GGM map" />
-            </a>
-            <div class="card-body">
-              <h3>XMM‑Newton GGM</h3>
-              <div class="meta">PNG · Edge-enhanced X‑ray</div>
-            </div>
-          </article>
+        <div class="project-body">
+          <h3>Radio Relics and Cluster Mergers</h3>
+          <p>Exploring the physics of radio relics and their connection to merger shocks in galaxy clusters using simulations and observations.</p>
         </div>
-      </section>
-    </main>
+      </article>
+      <article class="project">
+        <div class="project-img">
+          <img src="assets/project2.jpg" alt="Project 2" />
+        </div>
+        <div class="project-body">
+          <h3>Self‑Interacting Dark Matter</h3>
+          <p>Investigating how alternative dark matter models affect the evolution of cluster mergers and cosmic structures.</p>
+        </div>
+      </article>
+      <article class="project">
+        <div class="project-img">
+          <img src="assets/project3.jpg" alt="Project 3" />
+        </div>
+        <div class="project-body">
+          <h3>Weak‑Lensing and Multi‑Wavelength Studies</h3>
+          <p>Reconstructing cluster mass distributions and comparing them with radio/X‑ray features to understand cosmic evolution.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="other">
+      <h2>Beyond Astronomy</h2>
+      <p>I also enjoy sharing science with the public, teaching, and exploring creative projects outside of astronomy — from visual design to outreach activities that inspire the next generation.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+      <p>
+        <a href="#">Google Scholar</a> ·
+        <a href="#">ORCID</a> ·
+        <a href="#">LinkedIn</a> ·
+        <a href="#">GitHub</a>
+      </p>
+    </section>
 
     <footer>
-      <div>© <span id="year"></span> Wonki Lee</div>
+      © <span id="year"></span> Wonki Lee — Built on GitHub Pages
     </footer>
   </div>
 
