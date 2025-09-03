@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery — Wonki Lee</title>
+  <meta name="description" content="Gallery of simulations and observations by Wonki Lee" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; color:#0f172a; background:#ffffff; }
+    a { color:#0f62fe; text-decoration:none; }
+    a:hover { text-decoration:underline; text-underline-offset:2px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header { display:flex; align-items:center; justify-content:space-between; padding: 12px 0; }
+    nav a { margin-left:16px; font-weight:600; color:#0f172a; opacity:0.85; }
+    h1 { font-size: clamp(28px, 5vw, 44px); margin: 12px 0 8px; }
+    p.muted { color:#334155; }
+
+    .tabs { display:flex; gap:12px; margin: 16px 0 8px; flex-wrap:wrap; }
+    .pill { border:1px solid #e5e7eb; padding:8px 12px; border-radius:999px; }
+
+    .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:16px; margin-top:16px; }
+    .card { border:1px solid #e5e7eb; border-radius:12px; overflow:hidden; background:#fff; }
+    .thumb { aspect-ratio:16/9; background:#f1f5f9; display:block; width:100%; object-fit:cover; }
+    .card-body { padding:12px; }
+    .card h3 { margin:0 0 4px; font-size:1.05rem; }
+    .meta { color:#64748b; font-size:0.92rem; }
+
+    footer { padding:32px 0; color:#64748b; font-size:0.95rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div><a href="index.html" style="font-weight:800; letter-spacing:-0.02em">Wonki Lee</a></div>
+      <nav>
+        <a href="index.html#projects">Projects</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Gallery</h1>
+      <p class="muted">Simulations, images, and maps. Each item links to the original file (video or image) hosted in your repo or elsewhere.</p>
+
+      <div class="tabs">
+        <span class="pill">All</span>
+        <span class="pill">Simulations</span>
+        <span class="pill">Observations</span>
+        <span class="pill">Figures</span>
+      </div>
+
+      <section>
+        <h2 style="font-size:1.2rem; margin:16px 0 8px">Simulations</h2>
+        <div class="grid">
+          <article class="card">
+            <a href="assets/sim_shock_evolution.mp4" target="_blank" rel="noreferrer">
+              <img class="thumb" src="assets/sim_shock_evolution_thumb.jpg" alt="Shock evolution video" />
+            </a>
+            <div class="card-body">
+              <h3>Shock Evolution in a Cluster Merger</h3>
+              <div class="meta">MP4 · 30s · TNG‑Cluster derived</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <a href="assets/sidm_offset.mp4" target="_blank" rel="noreferrer">
+              <img class="thumb" src="assets/sidm_offset_thumb.jpg" alt="SIDM halo–shock offset video" />
+            </a>
+            <div class="card-body">
+              <h3>SIDM Halo–Shock Offsets</h3>
+              <div class="meta">MP4 · 20s · TNGC‑SIDM</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 style="font-size:1.2rem; margin:16px 0 8px">Observations</h2>
+        <div class="grid">
+          <article class="card">
+            <a href="assets/meerkat_relic.png" target="_blank" rel="noreferrer">
+              <img class="thumb" src="assets/meerkat_relic_thumb.jpg" alt="MeerKAT relic map" />
+            </a>
+            <div class="card-body">
+              <h3>MeerKAT Relic Map</h3>
+              <div class="meta">PNG · Polarization overlay</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <a href="assets/xmm_ggm.png" target="_blank" rel="noreferrer">
+              <img class="thumb" src="assets/xmm_ggm_thumb.jpg" alt="XMM-Newton GGM map" />
+            </a>
+            <div class="card-body">
+              <h3>XMM‑Newton GGM</h3>
+              <div class="meta">PNG · Edge-enhanced X‑ray</div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Wonki Lee</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
