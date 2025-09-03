@@ -10,49 +10,68 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0b0f19;
-      --card: #111827;
-      --muted: #94a3b8;
-      --text: #e5e7eb;
-      --brand: #60a5fa;
-      --accent: #34d399;
+      --bg: #ffffff;
+      --muted: #475569;
+      --text: #1e293b;
+      --brand: #2563eb;
+      --accent: #16a34a;
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
-      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 70% -10%, #1f2937 0%, var(--bg) 50%);
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+      background: var(--bg);
       color: var(--text);
     }
     a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a:hover { text-decoration: underline; text-underline-offset: 2px; }
     .container { max-width: 980px; margin: 0 auto; padding: 24px; }
 
     header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; }
     .logo { font-weight: 800; letter-spacing: -0.02em; }
     nav a { margin-left: 16px; font-weight: 600; color: var(--text); opacity: 0.85; }
 
-    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: center; padding: 48px 0 24px; }
-    .hero h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.05; margin: 0 0 12px; }
+    .hero { position: relative; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: center; padding: 64px 0 48px; }
+    .hero h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.05; margin: 0 0 12px; position: relative; z-index: 2; }
     .hero p { color: var(--muted); font-size: 1.05rem; margin: 0 0 20px; }
     .cta { display: inline-flex; gap: 10px; flex-wrap: wrap; }
-    .btn { background: var(--brand); color: #0b1220; border: 0; padding: 12px 16px; border-radius: 12px; font-weight: 800; cursor: pointer; }
-    .btn.secondary { background: transparent; border: 1px solid #334155; color: var(--text); }
-    .card { background: linear-gradient(180deg, #0f172a 0%, var(--card) 100%); border: 1px solid #1f2a44; border-radius: 16px; padding: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+    .btn { background: var(--brand); color: #fff; border: 0; padding: 12px 16px; border-radius: 12px; font-weight: 800; cursor: pointer; }
+    .btn.secondary { background: transparent; border: 1px solid #cbd5e1; color: var(--text); }
+    img.profile-pic { max-width: 100%; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+
+    .hero::before {
+      content: "Wonki Lee";
+      position: absolute;
+      top: 10%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 12vw;
+      font-weight: 800;
+      color: rgba(0,0,0,0.05);
+      z-index: 1;
+      pointer-events: none;
+      transition: font-size 0.3s ease;
+    }
+    body.scrolled .hero::before {
+      font-size: 6vw;
+    }
 
     section { padding: 36px 0; }
     h2 { font-size: 1.6rem; margin: 0 0 16px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-    .item h3 { margin: 8px 0 6px; font-size: 1.1rem; }
-    .item p { margin: 0; color: var(--muted); }
+
+    .project { display: flex; align-items: center; gap: 20px; padding: 24px 0; border-bottom: 1px solid #e2e8f0; }
+    .project:nth-child(even) { flex-direction: row-reverse; }
+    .project img { width: 40%; border-radius: 12px; object-fit: cover; }
+    .project-content { flex: 1; }
 
     footer { padding: 28px 0 48px; color: var(--muted); font-size: 0.95rem; }
-
-    img.profile-pic { max-width: 100%; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.4); }
 
     @media (max-width: 760px) {
       .hero { grid-template-columns: 1fr; }
       nav { display: none; }
+      .project { flex-direction: column !important; }
+      .project img { width: 100%; }
     }
   </style>
 </head>
@@ -70,7 +89,7 @@
     <section class="hero">
       <div>
         <h1>Hello! I'm <span style="color:var(--accent)">Wonki Lee</span>.</h1>
-        <p>Some quick description of my interest below.</p>
+        <p>Astrophysicist interested in galaxy clusters, dark matter, and the physics of radio relics. My work bridges cosmological simulations with multi-wavelength observations to uncover the nature of the universe.</p>
         <div class="cta">
           <a class="btn" href="#projects">See Projects</a>
           <a class="btn secondary" href="#gallery">View Gallery</a>
@@ -83,44 +102,47 @@
 
     <section id="about">
       <h2>About</h2>
-      <div class="card">
-        <p>
-          Write a short paragraph about yourself. You can link to <a href="#">papers</a>, <a href="#">talks</a>, or your <a href="#">CV</a>.
-        </p>
-      </div>
+      <p>
+        I am a postdoctoral researcher focusing on merging galaxy clusters, radio relics, weak‑lensing mass reconstructions, and self‑interacting dark matter. My research combines large cosmological simulations with observational campaigns across radio, optical, and X‑ray wavelengths.
+      </p>
     </section>
 
     <section id="projects">
       <h2>Projects</h2>
-      <div class="grid">
-        <div class="item card">
-          <h3>Project One</h3>
-          <p>What it is, what tech you used, and why it's cool.</p>
+      <div class="project">
+        <img src="project1.jpg" alt="Project One" />
+        <div class="project-content">
+          <h3>Reconstructing Cluster Merger Histories</h3>
+          <p>Using radio relics as tracers of merger shocks, I developed methods to estimate time since collision and merger geometry. This work helps constrain dark matter models and plasma physics in extreme environments.</p>
         </div>
-        <div class="item card">
-          <h3>Project Two</h3>
-          <p>Another project with a short description and a link.</p>
+      </div>
+      <div class="project">
+        <img src="project2.jpg" alt="Project Two" />
+        <div class="project-content">
+          <h3>TNGC-SIDM Simulations</h3>
+          <p>I lead the TNGC-SIDM project, simulating massive cluster mergers with self‑interacting dark matter physics and full galaxy formation models. These simulations provide the first cosmological dataset of this kind.</p>
         </div>
-        <div class="item card">
-          <h3>Project Three</h3>
-          <p>Keep each card short. Link out to repos or demos.</p>
+      </div>
+      <div class="project">
+        <img src="project3.jpg" alt="Project Three" />
+        <div class="project-content">
+          <h3>Multi-wavelength Observations</h3>
+          <p>From MeerKAT radio surveys to XMM-Newton and JWST observations, I integrate diverse datasets to understand cluster merger shocks, diffuse radio emissions, and the role of baryonic physics in cosmic structure formation.</p>
         </div>
       </div>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <div class="card">
-        <p>
-          The simplest way to add a contact is to list an email: <a href="mailto:you@example.com">you@example.com</a>. You can also add links to social profiles below.
-        </p>
-        <p style="display:flex; gap:14px; flex-wrap:wrap; margin-top:8px">
-          <a href="#">Google Scholar</a>
-          <a href="#">Twitter/X</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">ORCID</a>
-        </p>
-      </div>
+      <p>
+        The simplest way to add a contact is to list an email: <a href="mailto:you@example.com">you@example.com</a>. You can also add links to social profiles below.
+      </p>
+      <p style="display:flex; gap:14px; flex-wrap:wrap; margin-top:8px">
+        <a href="#">Google Scholar</a>
+        <a href="#">Twitter/X</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">ORCID</a>
+      </p>
     </section>
 
     <footer>
@@ -132,6 +154,13 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        document.body.classList.add('scrolled');
+      } else {
+        document.body.classList.remove('scrolled');
+      }
+    });
   </script>
 </body>
 </html>
