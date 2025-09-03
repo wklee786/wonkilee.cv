@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Homepage</title>
-  <meta name="description" content="Personal homepage built with GitHub Pages" />
+  <title>Wonki Lee</title>
+  <meta name="description" content="Personal homepage of Wonki Lee" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
@@ -28,31 +28,28 @@
     a:hover { text-decoration: underline; }
     .container { max-width: 980px; margin: 0 auto; padding: 24px; }
 
-    /* Header */
     header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; }
     .logo { font-weight: 800; letter-spacing: -0.02em; }
     nav a { margin-left: 16px; font-weight: 600; color: var(--text); opacity: 0.85; }
 
-    /* Hero */
     .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: center; padding: 48px 0 24px; }
     .hero h1 { font-size: clamp(28px, 5vw, 48px); line-height: 1.05; margin: 0 0 12px; }
     .hero p { color: var(--muted); font-size: 1.05rem; margin: 0 0 20px; }
-    .cta { display: inline-flex; gap: 10px; }
+    .cta { display: inline-flex; gap: 10px; flex-wrap: wrap; }
     .btn { background: var(--brand); color: #0b1220; border: 0; padding: 12px 16px; border-radius: 12px; font-weight: 800; cursor: pointer; }
     .btn.secondary { background: transparent; border: 1px solid #334155; color: var(--text); }
     .card { background: linear-gradient(180deg, #0f172a 0%, var(--card) 100%); border: 1px solid #1f2a44; border-radius: 16px; padding: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
 
-    /* Sections */
     section { padding: 36px 0; }
     h2 { font-size: 1.6rem; margin: 0 0 16px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
     .item h3 { margin: 8px 0 6px; font-size: 1.1rem; }
     .item p { margin: 0; color: var(--muted); }
 
-    /* Footer */
     footer { padding: 28px 0 48px; color: var(--muted); font-size: 0.95rem; }
 
-    /* Small screens */
+    img.profile-pic { max-width: 100%; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.4); }
+
     @media (max-width: 760px) {
       .hero { grid-template-columns: 1fr; }
       nav { display: none; }
@@ -62,7 +59,7 @@
 <body>
   <div class="container">
     <header>
-      <div class="logo">My Homepage</div>
+      <div class="logo">Wonki Lee</div>
       <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -72,22 +69,15 @@
 
     <section class="hero">
       <div>
-        <h1>Hello! I'm <span style="color:var(--accent)">Your Name</span>.</h1>
-        <p>
-          This is a lightweight, single‑file site you can deploy with GitHub Pages. Replace this text with a one‑line bio or what visitors should know about you.
-        </p>
+        <h1>Hello! I'm <span style="color:var(--accent)">Wonki Lee</span>.</h1>
+        <p>Some quick description of my interest below.</p>
         <div class="cta">
           <a class="btn" href="#projects">See Projects</a>
-          <a class="btn secondary" href="https://github.com/" target="_blank" rel="noreferrer">View GitHub</a>
+          <a class="btn secondary" href="#gallery">View Gallery</a>
         </div>
       </div>
-      <div class="card">
-        <h3 style="margin:0 0 8px">Quick Facts</h3>
-        <ul style="margin:0; padding-left:18px; line-height:1.7">
-          <li>Based in: Your City</li>
-          <li>Interests: Web, Data, Science</li>
-          <li>Currently: Building cool stuff</li>
-        </ul>
+      <div>
+        <img src="profile.jpg" alt="Wonki Lee" class="profile-pic" />
       </div>
     </section>
 
@@ -135,7 +125,7 @@
 
     <footer>
       <div>
-        © <span id="year"></span> Your Name — Built with ❤ on GitHub Pages
+        © <span id="year"></span> Wonki Lee — Built with ❤ on GitHub Pages
       </div>
     </footer>
   </div>
