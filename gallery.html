@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gallery — Wonki Lee</title>
-  <meta name="description" content="Gallery of simulations and observations by Wonki Lee" />
+  <meta name="description" content="Gallery of simulations, observations, and talks by Wonki Lee" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
@@ -12,18 +12,19 @@
     body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; color:#0f172a; background:#ffffff; }
     a { color:#0f62fe; text-decoration:none; }
     a:hover { text-decoration:underline; text-underline-offset:2px; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
-    header { display:flex; align-items:center; justify-content:space-between; padding: 12px 0; }
+    .container { max-width:1100px; margin:0 auto; padding:24px; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:12px 0; }
     nav a { margin-left:16px; font-weight:600; color:#0f172a; opacity:0.85; }
-    h1 { font-size: clamp(28px, 5vw, 44px); margin: 12px 0 8px; }
+    h1 { font-size:clamp(28px,5vw,44px); margin:12px 0 8px; }
     p.muted { color:#334155; }
 
-    .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:16px; margin-top:16px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; margin-top:16px; }
     .card { border:1px solid #e5e7eb; border-radius:12px; overflow:hidden; background:#fff; }
     .thumb { aspect-ratio:16/9; background:#f1f5f9; display:block; width:100%; object-fit:cover; }
     .card-body { padding:12px; }
-    .card h3 { margin:0 0 4px; font-size:1.05rem; }
+    .card h3 { margin:0 0 4px; font-size:1.05rem; line-height:1.35; }
     .meta { color:#64748b; font-size:0.92rem; }
+    .meta a { color:#475569; text-decoration:underline; text-underline-offset:2px; }
 
     footer { padding:32px 0; color:#64748b; font-size:0.95rem; }
   </style>
@@ -39,8 +40,70 @@
 
     <main>
       <h1>Gallery</h1>
-      <p class="muted">Simulations, images, and maps. Each item links to the original file (video or image) hosted in your repo or elsewhere.</p>
+      <p class="muted">Simulations, images, maps, and selected talks. Each item links to the original file or video.</p>
 
+      <!-- Talks & Videos -->
+      <section>
+        <h2 style="font-size:1.2rem; margin:16px 0 8px">Talks &amp; Videos</h2>
+        <div class="grid">
+          <!-- 1. Perseus cluster simulation -->
+          <article class="card">
+            <a href="https://youtu.be/ioJ1ubGI67s" target="_blank" rel="noopener noreferrer">
+              <img class="thumb" src="https://img.youtube.com/vi/ioJ1ubGI67s/hqdefault.jpg" alt="Perseus cluster simulation video" />
+            </a>
+            <div class="card-body">
+              <h3>Perseus Cluster Simulation</h3>
+              <div class="meta">YouTube · Simulation · <a href="https://arxiv.org/abs/2405.00115" target="_blank" rel="noopener noreferrer">Paper 1</a></div>
+            </div>
+          </article>
+
+          <!-- 2. Radio relic in TNG simulations -->
+          <article class="card">
+            <a href="https://youtu.be/QsHHesVSrJw" target="_blank" rel="noopener noreferrer">
+              <img class="thumb" src="https://img.youtube.com/vi/QsHHesVSrJw/hqdefault.jpg" alt="Radio relic in TNG simulations video" />
+            </a>
+            <div class="card-body">
+              <h3>Radio Relic in TNG Simulations</h3>
+              <div class="meta">YouTube · TNG-Cluster · <a href="https://arxiv.org/abs/2311.06340" target="_blank" rel="noopener noreferrer">Paper 2</a></div>
+            </div>
+          </article>
+
+          <!-- 3. RATT colloquium 2025 -->
+          <article class="card">
+            <a href="https://youtu.be/Ql5fLiR8Y8U" target="_blank" rel="noopener noreferrer">
+              <img class="thumb" src="https://img.youtube.com/vi/Ql5fLiR8Y8U/hqdefault.jpg" alt="RATT colloquium 2025 video" />
+            </a>
+            <div class="card-body">
+              <h3>RATT Colloquium 2025 — Statistical Insights from Radio Relics: Merger, Acceleration, and Dark Matter</h3>
+              <div class="meta">YouTube · Colloquium · <a href="https://arxiv.org/abs/2311.06340" target="_blank" rel="noopener noreferrer">Paper 2</a>, <a href="https://arxiv.org/abs/2510.21632" target="_blank" rel="noopener noreferrer">Paper 3</a></div>
+            </div>
+          </article>
+
+          <!-- 4. WL mass bias — 2022 IAUGA e-talk -->
+          <article class="card">
+            <a href="https://youtu.be/j-dTkbsBMWw" target="_blank" rel="noopener noreferrer">
+              <img class="thumb" src="https://img.youtube.com/vi/j-dTkbsBMWw/hqdefault.jpg" alt="WL mass bias 2022 IAUGA e-talk video" />
+            </a>
+            <div class="card-body">
+              <h3>Weak-Lensing Mass Bias — 2022 IAUGA e-talk</h3>
+              <div class="meta">YouTube · Talk · <a href="https://arxiv.org/abs/2211.03892" target="_blank" rel="noopener noreferrer">Paper 4</a></div>
+            </div>
+          </article>
+
+          <!-- 5. GCF 2021 -->
+          <article class="card">
+            <a href="https://youtu.be/2RCk_OSsZjE?si=9hYoxJgeYiHU0ISB" target="_blank" rel="noopener noreferrer">
+              <img class="thumb" src="https://img.youtube.com/vi/2RCk_OSsZjE/hqdefault.jpg" alt="GCF 2021 talk video" />
+            </a>
+            <div class="card-body">
+              <h3>GCF 2021 — Galaxy Cluster Formation and Evolution</h3>
+              <div class="meta">YouTube · Conference · <a href="https://arxiv.org/abs/2310.00914" target="_blank" rel="noopener noreferrer">Paper 5</a></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Simulations -->
       <section>
         <h2 style="font-size:1.2rem; margin:16px 0 8px">Simulations</h2>
         <div class="grid">
@@ -50,7 +113,7 @@
             </a>
             <div class="card-body">
               <h3>Shock Evolution in a Cluster Merger</h3>
-              <div class="meta">MP4 · 30s · TNG‑Cluster derived</div>
+              <div class="meta">MP4 · 30 s · TNG-Cluster derived</div>
             </div>
           </article>
 
@@ -60,12 +123,13 @@
             </a>
             <div class="card-body">
               <h3>SIDM Halo–Shock Offsets</h3>
-              <div class="meta">MP4 · 20s · TNGC‑SIDM</div>
+              <div class="meta">MP4 · 20 s · TNGC-SIDM</div>
             </div>
           </article>
         </div>
       </section>
 
+      <!-- Observations -->
       <section>
         <h2 style="font-size:1.2rem; margin:16px 0 8px">Observations</h2>
         <div class="grid">
@@ -84,8 +148,8 @@
               <img class="thumb" src="assets/xmm_ggm_thumb.jpg" alt="XMM-Newton GGM map" />
             </a>
             <div class="card-body">
-              <h3>XMM‑Newton GGM</h3>
-              <div class="meta">PNG · Edge-enhanced X‑ray</div>
+              <h3>XMM-Newton GGM</h3>
+              <div class="meta">PNG · Edge-enhanced X-ray</div>
             </div>
           </article>
         </div>
